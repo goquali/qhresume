@@ -59,9 +59,41 @@ const ninetyDays = [
 
 function App(){
   const [active,setActive]=useState(1);
+  const [passwordInput,setPasswordInput]=useState('');
+  const [passwordError,setPasswordError]=useState('');
+  const [isUnlocked,setIsUnlocked]=useState(()=>sessionStorage.getItem('q-profile-unlocked')==='true');
   const selected = experience[active];
   const print = () => window.print();
   const contactHref = 'mailto:q@goquali.com';
+  const sitePassword = import.meta.env.VITE_SITE_PASSWORD;
+  const isProtected = Boolean(sitePassword);
+
+  const unlock = (event) => {
+    event.preventDefault();
+    if (passwordInput === sitePassword) {
+      sessionStorage.setItem('q-profile-unlocked','true');
+      setIsUnlocked(true);
+      setPasswordError('');
+      return;
+    }
+    setPasswordError('That password did not work. Please check it and try again.');
+  };
+
+  if (isProtected && !isUnlocked) {
+    return <div className="password-page">
+      <form className="password-panel" onSubmit={unlock}>
+        <div className="brand">Q Hamirani</div>
+        <div className="kicker"><Sparkles size={16}/><span>Private candidate profile</span></div>
+        <h1>Enter password</h1>
+        <p>This profile is shared privately for recruiting conversations.</p>
+        <label htmlFor="site-password">Password</label>
+        <input id="site-password" type="password" value={passwordInput} onChange={(event)=>setPasswordInput(event.target.value)} autoComplete="current-password" autoFocus />
+        {passwordError && <div className="password-error">{passwordError}</div>}
+        <button className="primary" type="submit">View profile <ArrowUpRight size={17}/></button>
+      </form>
+    </div>
+  }
+
   return <div className="page">
     <div className="orb one"/><div className="orb two"/>
     <nav>
