@@ -1,7 +1,7 @@
 import React, {useMemo, useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {motion} from 'framer-motion';
-import {ArrowUpRight, BrainCircuit, Building2, CheckCircle2, Download, GraduationCap, LineChart, Network, Sparkles, TerminalSquare, Users} from 'lucide-react';
+import {ArrowUpRight, BrainCircuit, Building2, CheckCircle2, Download, GraduationCap, LineChart, Mail, Network, Sparkles, TerminalSquare, Users} from 'lucide-react';
 import './styles.css';
 
 const experience = [
@@ -38,35 +38,85 @@ const fit = [
   ['OpenAI-relevant scale','Airbnb experience maps directly to the complexity of scaling a generational technology company before and after IPO.']
 ];
 
+const recruiterSummary = [
+  ['Current','Global CPO, HighLevel'],
+  ['Former','Airbnb people operations leader'],
+  ['Scale','3K to 8K+ employees, IPO readiness'],
+  ['Focus','AI, people science, operating systems']
+];
+
+const roleMatch = [
+  'Scaled Airbnb through hypergrowth, contraction, IPO readiness, and post-public maturity.',
+  'Global CPO with people systems, analytics, operations, and executive partnership depth.',
+  'AI-native people leader with engineering, founder, educator, and operator credibility.'
+];
+
+const ninetyDays = [
+  ['Days 1-30','Listen, map, and solve visible friction','Build trust with leaders and teams while understanding how work actually gets done across research, product, engineering, GTM, and operations. Identify where people systems are slowing teams down, fix the obvious blockers quickly, and establish the first operating baseline for decision speed, manager capacity, and organizational health.'],
+  ['Days 31-60','Turn signal into operating cadence','Separate normal hypergrowth complexity from structural operating problems. Translate the strongest signals into practical operating rhythms: leadership dashboards, decision forums, talent reviews, org design checkpoints, and AI-enabled people workflows that improve speed and clarity.'],
+  ['Days 61-90','Scale what works','Move from early wins to repeatable systems. Launch the first version of an AI-native people operations roadmap, codify the cadences that are working, and equip leaders with the data, rituals, and tools they need to preserve speed while adding durable structure.']
+];
+
 function App(){
   const [active,setActive]=useState(1);
   const selected = experience[active];
   const print = () => window.print();
+  const contactHref = 'mailto:q@goquali.com';
   return <div className="page">
     <div className="orb one"/><div className="orb two"/>
     <nav>
       <div className="brand">Q Hamirani</div>
-      <div className="navlinks"><a href="#fit">Fit</a><a href="#experience">Experience</a><a href="#ideas">Ideas</a><a href="https://www.linkedin.com/in/hamirani" target="_blank">Resume</a><a href="#cover-letter">Cover Letter</a><button onClick={print}><Download size={16}/> Print / Save PDF</button></div>
+      <div className="navlinks"><a href="#fit">Fit</a><a href="#ninety-days">90 Days</a><a href="#experience">Experience</a><a href="#ideas">Ideas</a><a href="https://www.linkedin.com/in/hamirani" target="_blank">Resume</a><a href="#cover-letter">Cover Letter</a><a className="contact-link" href={contactHref}><Mail size={16}/> Contact Q</a><button onClick={print}><Download size={16}/> Print / Save PDF</button></div>
     </nav>
 
     <main>
       <section className="hero">
         <motion.div initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{duration:.7}}>
           <div className="eyebrow"><Sparkles size={16}/><span>Candidate profile for OpenAI Head of People Science & Operations</span></div>
-          <h1>Engineer turned global CPO building human + AI operating systems at scale.</h1>
+          <h1>Engineer turned global CPO building human + AI operating systems.</h1>
           <p className="lead">I have already lived the journey OpenAI is entering: scaling an iconic technology company through hypergrowth, complexity, contraction, IPO readiness, public-company transition, and the work of preserving innovation while adding durable operating systems.</p>
-          <div className="cta-row"><a className="primary" href="https://www.linkedin.com/in/hamirani" target="_blank">LinkedIn <ArrowUpRight size={17}/></a><a className="secondary" href="https://openai.com/careers/head-of-people-science-and-operations-san-francisco/" target="_blank">Role alignment <ArrowUpRight size={17}/></a></div>
+          <div className="cta-row"><a className="primary" href={contactHref}>Contact Q <Mail size={17}/></a><a className="secondary" href="https://www.linkedin.com/in/hamirani" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight size={17}/></a><a className="secondary" href="https://openai.com/careers/head-of-people-science-and-operations-san-francisco/" target="_blank" rel="noreferrer">Role alignment <ArrowUpRight size={17}/></a></div>
         </motion.div>
         <motion.div className="hero-side" initial={{opacity:0,scale:.96}} animate={{opacity:1,scale:1}} transition={{duration:.7,delay:.1}}>
           <img className="profile-photo" src="/q-hamirani.jpg" alt="Q Hamirani" />
           <div className="signal-card">
-            <div className="signal-title">Why this is not a traditional profile</div>
+            <div className="signal-title">Why Q is not a traditional profile</div>
             <p>Technical foundation. Hypergrowth operator. IPO experience. AI educator. Founder mindset. Global CPO with systems orientation.</p>
-            <a className="signal-line signal-link" href="https://www.youtube.com/watch?v=PurwrzkPcKo" target="_blank" rel="noreferrer"><span/> Culture as an operating system, not a slogan. <ArrowUpRight size={16}/></a>
+            <a className="signal-line signal-link" href="https://www.youtube.com/watch?v=PurwrzkPcKo" target="_blank" rel="noreferrer"><span/> Watch Slush keynote: Culture as an operating system. <ArrowUpRight size={16}/></a>
             <div className="signal-line"><span/> AI as capability amplification, not headcount replacement.</div>
             <div className="signal-line"><span/> People science grounded in systems, data, and execution.</div>
           </div>
         </motion.div>
+      </section>
+
+      <section className="section recruiter-summary">
+        <div>
+          <div className="kicker"><span>Recruiter summary</span></div>
+          <h2>At a glance</h2>
+        </div>
+        <div className="summary-grid">
+          {recruiterSummary.map(([label,value])=><div className="summary-item" key={label}><span>{label}</span><strong>{value}</strong></div>)}
+        </div>
+      </section>
+
+      <section className="section ninety-days" id="ninety-days">
+        <div className="ninety-intro">
+          <div className="kicker"><span>First 90 days</span></div>
+          <h2>Operate quickly, then scale what works.</h2>
+          <p>I would not arrive with a generic people agenda or a long planning cycle. I would start by understanding OpenAI’s operating system, then move quickly into execution: removing friction, strengthening leadership rhythms, and building the people science infrastructure needed for scale.</p>
+        </div>
+        <div className="ninety-plan">
+          {ninetyDays.map(([period,title,body])=><div className="ninety-step" key={period}><span>{period}</span><strong>{title}</strong><p>{body}</p></div>)}
+          <div className="ninety-goal"><span>The goal</span><p>Preserve the speed, intensity, and creativity that make OpenAI exceptional while actively building the systems that help it scale.</p></div>
+        </div>
+      </section>
+
+      <section className="section role-match" id="role-match">
+        <div>
+          <div className="kicker"><span>Role alignment</span></div>
+          <h2>Why I match this role</h2>
+        </div>
+        <ul>{roleMatch.map(point=><li key={point}>{point}</li>)}</ul>
       </section>
 
       <section className="proof-grid">
