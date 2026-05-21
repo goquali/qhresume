@@ -6,29 +6,29 @@ import './styles.css';
 
 const experience = [
   {
-    company:'HighLevel', role:'Global Chief People Officer', period:'2025 - Present',
+    company:'HighLevel', role:'Global Chief People Officer', period:'July 2024 - Present',
     headline:'Scaling an AI-powered, remote-first software company across global markets.',
     points:['Leads global people strategy, operating infrastructure, talent systems, analytics, and organizational design for a fully distributed company across 10+ countries.','Helped scale the organization from roughly 800 to 2,200+ employees globally while supporting growth from about $200M to $500M+ in annual revenue.','Modernized HR technology and people operations for a workforce with a significant international footprint, including India, US, Philippines, Mexico, and other regions.','Partners with CEO, founders, executive team, and board-facing stakeholders on org design, executive hiring, compensation, governance, and scaling systems.']
   },
   {
-    company:'Airbnb', role:'Senior People and Organizational Leadership Roles', period:'2014 - 2023',
+    company:'Airbnb', role:'Senior People and Organizational Leadership Roles', period:'July 2018 - March 2023',
     headline:'Did the job at OpenAI-like scale: hypergrowth, contraction, IPO, and post-public operating maturity.',
-    points:['Joined when Airbnb was approximately 3,000 employees and helped scale to nearly 8,000 globally before supporting redesign back toward roughly 5,000 during COVID.','Served as Airbnb’s first global People Operations leader, helping build the systems, operating model, and workforce infrastructure needed for global scale.','Played leadership roles through IPO readiness, public company transition, and two years of post-IPO operating evolution.','Helped evolve people systems across technical, product, business, and international organizations while preserving innovation velocity and culture.']
+    points:['Joined when Airbnb was approximately 3,000 employees and helped scale to 8,000+ globally in roughly 18 months before supporting organizational redesign during COVID.','Served as Airbnb’s first global People Operations leader, helping build the systems, operating model, and workforce infrastructure needed for global scale.','Played leadership roles through IPO readiness, public company transition, and two years of post-IPO operating evolution.','Helped evolve people systems across technical, product, business, and international organizations while preserving innovation velocity and culture.']
   },
   {
-    company:'Paper', role:'Chief People Officer', period:'2023 - 2025',
+    company:'Paper', role:'Chief People Officer', period:'April 2023 - April 2024',
     headline:'Led people strategy for a mission-driven education technology company.',
     points:['Led global people strategy, organizational redesign, workforce planning, and operating systems during a critical business transformation period.','Partnered with executive leadership on leadership infrastructure, talent strategy, and distributed team effectiveness.']
   }
 ];
 
 const proof = [
-  {label:'Scaled Airbnb', value:'3K → 8K → 5K', icon: Building2},
-  {label:'Current org scale', value:'2,200+ global', icon: Users},
+  {label:'Airbnb hypergrowth', value:'3K → 8K+ in 18 months', icon: Building2},
+  {label:'JLL enterprise scale', value:'50K+ employees', icon: Users},
   {label:'IPO experience', value:'Airbnb IPO + 2 yrs post', icon: LineChart},
   {label:'Technical fluency', value:'Engineer → Founder → CPO', icon: TerminalSquare},
-  {label:'AI leadership', value:'PeopleGPT founder', icon: BrainCircuit},
-  {label:'Teaching', value:'London Business School', icon: GraduationCap},
+  {label:'AI leadership', value:'PeopleGPT + Global People Labs founder', icon: BrainCircuit},
+  {label:'Investor + educator', value:'London Business School', icon: GraduationCap},
 ];
 
 const fit = [
@@ -46,7 +46,7 @@ function App(){
     <div className="orb one"/><div className="orb two"/>
     <nav>
       <div className="brand">Q Hamirani</div>
-      <div className="navlinks"><a href="#fit">Fit</a><a href="#experience">Experience</a><a href="#ideas">Ideas</a><button onClick={print}><Download size={16}/> Print / Save PDF</button></div>
+      <div className="navlinks"><a href="#fit">Fit</a><a href="#experience">Experience</a><a href="#ideas">Ideas</a><a href="https://www.linkedin.com/in/hamirani" target="_blank">Resume</a><a href="#cover-letter">Cover Letter</a><button onClick={print}><Download size={16}/> Print / Save PDF</button></div>
     </nav>
 
     <main>
@@ -57,12 +57,15 @@ function App(){
           <p className="lead">I have already lived the journey OpenAI is entering: scaling an iconic technology company through hypergrowth, complexity, contraction, IPO readiness, public-company transition, and the work of preserving innovation while adding durable operating systems.</p>
           <div className="cta-row"><a className="primary" href="https://www.linkedin.com/in/hamirani" target="_blank">LinkedIn <ArrowUpRight size={17}/></a><a className="secondary" href="https://openai.com/careers/head-of-people-science-and-operations-san-francisco/" target="_blank">Role alignment <ArrowUpRight size={17}/></a></div>
         </motion.div>
-        <motion.div className="signal-card" initial={{opacity:0,scale:.96}} animate={{opacity:1,scale:1}} transition={{duration:.7,delay:.1}}>
-          <div className="signal-title">Why this is not a traditional HR profile</div>
-          <p>Technical foundation. Hypergrowth operator. IPO experience. AI + HR educator. Founder mindset. Global CPO with systems orientation.</p>
-          <div className="signal-line"><span/> Culture as an operating system, not a slogan.</div>
-          <div className="signal-line"><span/> AI as capability amplification, not headcount replacement.</div>
-          <div className="signal-line"><span/> People science grounded in systems, data, and execution.</div>
+        <motion.div className="hero-side" initial={{opacity:0,scale:.96}} animate={{opacity:1,scale:1}} transition={{duration:.7,delay:.1}}>
+          <img className="profile-photo" src="/q-hamirani.jpg" alt="Q Hamirani" />
+          <div className="signal-card">
+            <div className="signal-title">Why this is not a traditional HR profile</div>
+            <p>Technical foundation. Hypergrowth operator. IPO experience. AI + HR educator. Founder mindset. Global CPO with systems orientation.</p>
+            <div className="signal-line"><span/> Culture as an operating system, not a slogan.</div>
+            <div className="signal-line"><span/> AI as capability amplification, not headcount replacement.</div>
+            <div className="signal-line"><span/> People science grounded in systems, data, and execution.</div>
+          </div>
         </motion.div>
       </section>
 
@@ -94,9 +97,19 @@ function App(){
         </div>
       </section>
 
+      <section id="cover-letter" className="section compact cover-letter">
+        <div className="kicker">Cover letter</div><h2>Why OpenAI, why this role</h2>
+        <p>OpenAI Team,</p>
+        <p>I am excited to express my interest in the Head of People Science and Operations role. My career has centered on helping organizations scale through moments of profound technological and organizational change. As an engineer turned founder turned Chief People Officer, I have operated at the intersection of people, systems, and technology across high-growth startups, scaled public companies, and global enterprises.</p>
+        <p>At Airbnb, I helped scale the company from roughly 3,000 to 8,000+ employees globally in about 18 months, and then helped navigate the organization through COVID, IPO readiness, public-company transition, and post-IPO operating maturity. At HighLevel, I now lead the global people function for a hypergrowth, AI-powered, remote-first technology company, where I have used OpenAI tools and AI-native workflows to rethink how a modern people function operates.</p>
+        <p>What makes this role especially compelling is the opportunity to help shape how organizations evolve in an AI-first world. I believe the next generation of companies will not scale through headcount alone. They will scale through systems, AI augmentation, judgment, leadership infrastructure, and human capability design.</p>
+        <p>OpenAI sits at the center of one of the most important technological shifts of our generation. The opportunity to help build the people science, operational systems, and leadership infrastructure that support that mission would be deeply meaningful.</p>
+        <p>Q Hamirani</p>
+      </section>
+
       <section className="section compact">
-        <div className="kicker">External credibility</div><h2>Speaker, teacher, founder, advisor</h2>
-        <p>Founder of PeopleGPT. Guest faculty contributor at London Business School. Keynote speaker and educator on AI, HR, leadership, organizational systems, and the future of work. Advisor to founders and executives building the next generation of people and work technology.</p>
+        <div className="kicker">External credibility</div><h2>Speaker, investor, founder, advisor</h2>
+        <p>Founder of PeopleGPT and Global People Labs. Guest faculty contributor at London Business School. Keynote speaker and educator on AI, HR, leadership, organizational systems, and the future of work. Investor and advisor to founders and executives building the next generation of people and work technology.</p>
       </section>
     </main>
     <footer>Built as an interactive executive profile for OpenAI recruiting conversations • Q Hamirani</footer>
